@@ -6,16 +6,7 @@ class SupabaseService {
         try {
             const { data, error } = await supabase
                 .from('faculty')
-                .select(`
-          id,
-          name,
-          cabin_number,
-          department,
-          faculty_presence (
-            status,
-            updated_at
-          )
-        `)
+                .select(`id, name, cabin_number, department, faculty_presence ( status, updated_at )`)
                 .ilike('name', `%${name}%`)
                 .limit(10);
 
