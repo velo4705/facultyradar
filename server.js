@@ -12,15 +12,15 @@ process.on('SIGINT', () => {
     process.exit(0);
 });
 
-const serverPort = process.env.PORT || port;
+const serverPort = parseInt(process.env.PORT) || port || 8000;
 
-// Start server
-const server = app.listen(serverPort, () => {
+console.log(`Attempting to listen on port: ${serverPort}`);
+
+const server = app.listen(serverPort, '0.0.0.0', () => {
     console.log(`Faculty Radar Backend running on port ${serverPort}`);
     console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
 });
 
-// Handle server errors
 server.on('error', (err) => {
     console.error('Server error:', err);
     process.exit(1);

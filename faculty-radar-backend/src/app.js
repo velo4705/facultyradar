@@ -5,6 +5,9 @@ const routes = require('./routes');
 
 const app = express();
 
+// Add this line to bind to all network interfaces
+app.set('trust proxy', true);
+
 // Middleware
 app.use(helmet()); // Security headers
 app.use(cors()); // Enable CORS
