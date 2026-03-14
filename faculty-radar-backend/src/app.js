@@ -17,12 +17,25 @@ app.use((req, res, next) => {
     next();
 });
 
-// Routes - this should come BEFORE error handlers
+// Root route - ADD THIS
+app.get('/', (req, res) => {
+    res.json({
+        message: 'Faculty Radar Backend API',
+        version: '1.0.0',
+        endpoints: {
+            health: '/api/health',
+            faculty_search: '/api/faculty/search?name=example',
+            presence_update: '/api/presence/update'
+        }
+    });
+});
+
+// Routes
 app.use('/api', routes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
-    console.error(err.stack);
+    console.error('Error:', err.stack);
     res.status(500).json({
         success: false,
         message: 'Something went wrong!',
@@ -30,7 +43,7 @@ app.use((err, req, res, next) => {
     });
 });
 
-// 404 handler - CORRECT way
+// 404 handler - FIXED
 app.use((req, res) => {
     res.status(404).json({
         success: false,
