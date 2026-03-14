@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Faculty Radar</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<canvas id="network"></canvas>
+
+<!-- Radar Background -->
+<div class="radar-bg">
+    <div class="radar-circle"></div>
+    <div class="radar-circle"></div>
+    <div class="radar-circle"></div>
+    <div class="radar-line"></div>
+
+    <span class="dot dot1" ></span>
+    <span class="dot dot2" ></span>
+    <span class="dot dot3" ></span>
+</div>
+
+<!-- Main Card -->
+<div class="card">
+
+<h1>📡 Faculty Radar</h1>
+
+<input type="text" id="facultyName" placeholder="Enter Faculty Name">
+
+<button onclick="scanFaculty()">Start Scan</button>
+
+<div id="result"></div>
+
+<div class="meter">
+<div id="meterFill"></div>
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
