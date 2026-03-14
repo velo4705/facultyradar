@@ -5,9 +5,6 @@ const routes = require('./routes');
 
 const app = express();
 
-// Add this line to bind to all network interfaces
-app.set('trust proxy', true);
-
 // Middleware
 app.use(helmet()); // Security headers
 app.use(cors()); // Enable CORS
@@ -20,7 +17,7 @@ app.use((req, res, next) => {
     next();
 });
 
-// Routes
+// Routes - this should come BEFORE error handlers
 app.use('/api', routes);
 
 // Error handling middleware
@@ -33,7 +30,7 @@ app.use((err, req, res, next) => {
     });
 });
 
-// 404 handler - FIXED
+// 404 handler - CORRECT way
 app.use((req, res) => {
     res.status(404).json({
         success: false,
