@@ -12,7 +12,7 @@ process.on('SIGINT', () => {
     process.exit(0);
 });
 
-const serverPort = parseInt(process.env.PORT) || port || 8000;
+const serverPort = parseInt(process.env.PORT) || port || 8080;
 
 console.log(`Attempting to listen on port: ${serverPort}`);
 
