@@ -12,9 +12,11 @@ process.on('SIGINT', () => {
     process.exit(0);
 });
 
+const serverPort = process.env.PORT || port;
+
 // Start server
-const server = app.listen(port, () => {
-    console.log(`Faculty Radar Backend running on port ${port}`);
+const server = app.listen(serverPort, () => {
+    console.log(`Faculty Radar Backend running on port ${serverPort}`);
     console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
 });
 

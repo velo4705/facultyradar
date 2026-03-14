@@ -8,6 +8,6 @@ module.exports = {
     jwt: {
         secret: process.env.JWT_SECRET
     },
-    port: process.env.PORT || 8000,
+    port: process.env.PORT || 8000, // Use Railway's assigned port or default to 8000
     nodeEnv: process.env.NODE_ENV
 };
